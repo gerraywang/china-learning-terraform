@@ -20,3 +20,12 @@ cd gcp/dev
 terraform init
 terraform plan
 ```
+
+## 参照
+[GKE × Terraformで基本的なk8s環境を構築する][def]
+
+[def]: https://laboratory.kiyono-co.jp/1032/gcp/
+
+[GCPの環境をTerraformで構築する][def2]
+
+[def2]: https://zenn.dev/slowhand/articles/9d8559de23dcd4
