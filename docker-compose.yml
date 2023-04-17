@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  infra:
+    build: .
+    image: xxxx/infra
+    container_name: "xxxx-infra"
+    volumes:
+      - ./:/infrastructure
+      - gcloud_config:/root/.config/gcloud
+    working_dir: /infrastructure
+    entrypoint: bash
+
+volumes:
+  gcloud_config:
