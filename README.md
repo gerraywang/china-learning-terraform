@@ -4,6 +4,8 @@
 1. GCPプロジェクト作成
 2. Githubリポジトリ接続
 3. SAを作成し、credentialsをダウンタウンしてsecret.jsonの内容を上書く
+   1. セキュリティ管理者
+   2. 編集者
 4. terraform.tfvars PJ情報入れ替え
   
 ### build
