@@ -8,11 +8,17 @@ variable "region" {
   description = "gcp region"
 }
 
+resource "google_artifact_registry_repository" "my-repo" {
+  location      = var.region
+  repository_id = "cloud-run-source-deploy"
+  description   = "cloud run source repository"
+  format        = "DOCKER"
+}
+
 resource "google_project_iam_member" "cloudbuild_iam" {
   for_each = toset([
     "roles/run.developer",
-    "roles/iam.serviceAccountUser",
-    "roles/artifactregistry.writer"
+    "roles/iam.serviceAccountUser"
   ])
   role    = each.key
   member  = "serviceAccount:${var.project_no}@cloudbuild.gserviceaccount.com"

@@ -5,7 +5,8 @@ variable "gcp_service_list" {
     "clouddeploy.googleapis.com",
     "containerregistry.googleapis.com",
     "run.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
+    "cloudresourcemanager.googleapis.com",
+    "artifactregistry.googleapis.com"
   ]
 }
 
