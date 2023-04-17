@@ -79,3 +79,10 @@ module "cloudbuild" {
   region  = var.gcp_region
 }
 
+module "cloudrun" {
+  source       = "./module/cloudrun"
+  depends_on   = [module.api]
+  project_id = var.gcp_project_id
+  region  = var.gcp_region
+}
+
