@@ -11,7 +11,8 @@ variable "region" {
 resource "google_project_iam_member" "cloudbuild_iam" {
   for_each = toset([
     "roles/run.developer",
-    "roles/iam.serviceAccountUser"
+    "roles/iam.serviceAccountUser",
+    "roles/artifactregistry.writer"
   ])
   role    = each.key
   member  = "serviceAccount:${var.project_no}@cloudbuild.gserviceaccount.com"
