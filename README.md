@@ -1,9 +1,11 @@
 # china-learning-terraform
 
-## run
-
-### SAを作成し、credentialsをダウンタウンしてsecret.jsonの内容を上書く
-
+### 準備
+1. GCPプロジェクト作成
+2. Githubリポジトリ接続
+3. SAを作成し、credentialsをダウンタウンしてsecret.jsonの内容を上書く
+4. terraform.tfvars PJ情報入れ替え
+  
 ### build
 ``` shell
 docker-compose run --rm infra

@@ -66,3 +66,16 @@ module "gke" {
     },
   ]
 }
+
+module "api" {
+  source = "./module/api"
+}
+
+module "cloudbuild" {
+  source     = "./module/cloudbuild"
+  depends_on = [module.api]
+  project_id = var.gcp_project_id
+  project_no = var.gcp_project_no
+  region  = var.gcp_region
+}
+

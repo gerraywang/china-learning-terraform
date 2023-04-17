@@ -2,8 +2,15 @@
 variable gcp_project_id {
   description = "GCP project id"
 }
+variable "gcp_project_no" {
+  description = "GCP project no"
+  type = number
+}
 variable gcp_region {
   description = "GCP region"
+}
+variable "gcp_project_name" {
+  description = "GCP project name"
 }
 
 # others
