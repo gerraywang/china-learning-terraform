@@ -2,6 +2,8 @@
 
 ## run
 
+### SAを作成し、credentialsをダウンタウンしてsecret.jsonの内容を上書く
+
 ### build
 ``` shell
 docker-compose run --rm infra
