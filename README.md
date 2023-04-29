@@ -3,6 +3,10 @@
 ### 目的
 勉強用PJは個人で三ヶ月ごとに作成しているので、毎度環境を構築する手間を省くため、IaC（Terraform）で環境構築できるようになりました。
 
+### リソース一覧
+1. testapi (Cloud Build + Cloud Run)　※　Cloud Runでアプリケーション（API）を実行する
+2. GKE
+   
 ### 準備
 1. GCPプロジェクト作成
 2. Githubリポジトリ接続

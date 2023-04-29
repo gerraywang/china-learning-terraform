@@ -6,6 +6,14 @@ terraform {
       source  = "hashicorp/google"
       version = "4.51.0"
     }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.6.1"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = ">= 2.4.1"
+    }
   }
 }
 
@@ -35,3 +43,9 @@ module "cloudrun" {
   region  = var.gcp_region
 }
 
+module "argocd" {
+  source       = "./module/argocd"
+  project_id = var.gcp_project_id
+  project_no = var.gcp_project_no
+  region  = var.gcp_region
+}
