@@ -77,3 +77,7 @@ terraform destroy
 [GCPの環境をTerraformで構築する][def2]
 
 [def2]: https://zenn.dev/slowhand/articles/9d8559de23dcd4
+
+[Argo CD - Declarative GitOps CD for Kubernetes][def3]
+
+[def3]:https://argo-cd.readthedocs.io/en/stable/cli_installation/
