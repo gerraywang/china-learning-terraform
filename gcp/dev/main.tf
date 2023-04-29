@@ -43,8 +43,9 @@ module "cloudrun" {
   region  = var.gcp_region
 }
 
-module "argocd" {
-  source       = "./module/argocd"
+module "gke" {
+  source       = "./module/gke"
+  depends_on   = [module.api]
   project_id = var.gcp_project_id
   project_no = var.gcp_project_no
   region  = var.gcp_region
