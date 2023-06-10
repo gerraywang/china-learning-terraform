@@ -21,5 +21,10 @@ resource "google_container_cluster" "my_cluster" {
       issue_client_certificate = false
     }
   }
+
+  ip_allocation_policy {
+    # 使用 VPC-native routing。
+    # 没有其他的配置是必要的，GKE 会自动为您创建合适的子网和 IP 范围。
+  }
 }
 

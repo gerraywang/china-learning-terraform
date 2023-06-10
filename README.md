@@ -64,6 +64,11 @@ argocd admin initial-password -n argocd
 kubectl apply -f argo/manifest/application.yml 
 ```
 
+### GKE Ingress Configuration
+[GKE × Terraformで基本的なk8s 環境を構築する][def4]
+
+[def4]: https://medium.com/google-cloud/configuring-argocd-on-gke-with-ingress-and-github-sso-bf7868942403
+
 ### clean up 　
 ``` shell
 terraform destroy 
