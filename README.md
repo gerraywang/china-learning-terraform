@@ -26,7 +26,6 @@ docker-compose run --rm infra
 ``` shell
 gcloud auth application-default set-quota-project <PROJECT-ID>
 gcloud auth login --no-launch-browser
-
 ```
 
 ### terraform
@@ -56,7 +55,6 @@ kubectl get svc argocd-server -n argocd
 user: admin
 password: <password>
 argocd admin initial-password -n argocd
-
 ```
 
 ### deploy application into ArgoCD　
@@ -65,9 +63,39 @@ kubectl apply -f argo/manifest/application.yml
 ```
 
 ### GKE Ingress Configuration
+1. Disable internal TLS  
+edit the deployment named “argocd-server” and make the following changes
+``` yaml
+containers:
+      - args:
+        - /usr/local/bin/argocd-server
+        - --insecure
+        name: argocd-server
+```
+注意事項  
+【Disable internal TLS】設定せず、バックエンド接続できない問題が起きる。設定方法が変わっている。以下のリンクを参照して設定する。
+https://blog.turai.work/entry/20230513/1683917349
+   
+2. Create service
+``` shell
+kubectl apply -f argo/ingress/service.yaml
+kubectl apply -f argo/ingress/backend-config.yaml
+kubectl apply -f argo/ingress/frontend-config.yaml
+gcloud compute addresses create argocd-ingress-ip  --global --ip-version IPV4
+kubectl apply -f argo/ingress/managed-certificate.yaml
+kubectl apply -f argo/ingress/ingress.yaml
+```
+   
+
+
+
+参考  
+[NEG(Network Endpoint Group)を使った負荷分散][def5]
 [GKE × Terraformで基本的なk8s 環境を構築する][def4]
 
 [def4]: https://medium.com/google-cloud/configuring-argocd-on-gke-with-ingress-and-github-sso-bf7868942403
+
+[def5]:https://christina04.hatenablog.com/entry/network-endpoint-group
 
 ### clean up 　
 ``` shell

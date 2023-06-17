@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: argocd-example-cert
+  namespace: argocd
+spec:
+  domains:
+    - argocd.wyq.app
